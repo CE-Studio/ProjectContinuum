@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo6ioynffhmtg"]
+[gd_scene load_steps=6 format=3 uid="uid://bo6ioynffhmtg"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_pfuwq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r146y"]
 size = Vector2(12, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntgqx"]
+size = Vector2(4, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o153g"]
+size = Vector2(4, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_appp5"]
+size = Vector2(2, 1)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -12,3 +21,38 @@ script = ExtResource("1_pfuwq")
 [node name="MainHitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_r146y")
 debug_color = Color(0.705882, 0.964706, 1, 0.239216)
+
+[node name="WalljumpArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CheckBox" type="CollisionShape2D" parent="WalljumpArea"]
+position = Vector2(-7, 0)
+shape = SubResource("RectangleShape2D_ntgqx")
+debug_color = Color(0.643137, 1, 0.611765, 0.239216)
+
+[node name="GripArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CheckBox" type="CollisionShape2D" parent="GripArea"]
+position = Vector2(7, -9)
+shape = SubResource("RectangleShape2D_o153g")
+debug_color = Color(0.643137, 1, 0.611765, 0.239216)
+
+[node name="VaultArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CheckBox" type="CollisionShape2D" parent="VaultArea"]
+position = Vector2(6, 1)
+shape = SubResource("RectangleShape2D_appp5")
+debug_color = Color(0.643137, 1, 0.611765, 0.239216)
+
+[node name="BulletPoint" type="Node2D" parent="."]
+position = Vector2(10, -7)
+
+[node name="FloorHitFront" type="RayCast2D" parent="."]
+position = Vector2(6, 15)
+target_position = Vector2(0, 18)
+
+[node name="FloorHitBack" type="RayCast2D" parent="."]
+position = Vector2(-6, 15)
+target_position = Vector2(0, 18)
