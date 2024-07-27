@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://btooqoo012g84"]
+
+[ext_resource type="PackedScene" uid="uid://c2tbcv0kwaguy" path="res://Scenes/Rooms/RoomTestTemplate.tscn" id="1_71dmi"]
+[ext_resource type="PackedScene" uid="uid://bo6ioynffhmtg" path="res://Scenes/Player.tscn" id="2_ofqp6"]
+
+[node name="Game" type="Node2D"]
+
+[node name="RoomTestTemplate" parent="." instance=ExtResource("1_71dmi")]
+
+[node name="Player" parent="." instance=ExtResource("2_ofqp6")]
+position = Vector2(-16, 46)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
